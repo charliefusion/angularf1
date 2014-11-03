@@ -1,4 +1,15 @@
 angular.module('F1StatsApp', [
+	'F1StatsApp.services',
 	'F1StatsApp.controllers',
-	'F1StatsApp.services'
-]);
+	'ngRoute'
+]).config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/drivers', {
+		templateUrl: 'partials/drivers.html',
+		controller: 'driversController'
+	}).when('/drivers/:id', {
+		templateUrl: 'partials/driver.html',
+		controller: 'driverController'
+	}).otherwise({
+		redirectTo: '/drivers'
+	});
+}]);
