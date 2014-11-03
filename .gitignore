@@ -2,3 +2,5 @@
 Thumbs.db
 scss/*
 node_modules/*
+.sass-cache/*
+gruntfile.js
