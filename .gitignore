@@ -4,3 +4,4 @@ scss/*
 node_modules/*
 .sass-cache/*
 gruntfile.js
+package.json
