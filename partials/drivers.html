@@ -12,7 +12,7 @@
 				<img src="img/flags/{{driver.Driver.nationality}}.png" alt="flag of {{driver.Driver.nationality}}">
 				<a href="#/drivers/{{driver.Driver.driverId}}">{{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}</a>
 			</td>
-			<td>{{driver.Constructors[0].name}}</td>
+			<td><a href="#/teams/{{driver.Constructors[0].constructorId}}">{{driver.Constructors[0].name}}</a></td>
 			<td>{{driver.points}}</td>
 		</tr>
 	</tbody>

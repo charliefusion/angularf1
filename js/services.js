@@ -18,5 +18,11 @@ angular.module('F1StatsApp.services', []).factory('ergastAPIservice', function($
 			url: 'http://ergast.com/api/f1/2014/drivers/' + id + '/results.json?callback=JSON_CALLBACK'
 		});
 	}
+	ergastAPI.getTeamDetails = function(id) {
+		return $http({
+			method: 'JSONP',
+			url: 'http://ergast.com/api/f1/2014/constructors/' + id + '/constructorStandings.json?callback=JSON_CALLBACK'
+		});
+	}
 	return ergastAPI;
 });

@@ -19,4 +19,10 @@ angular.module('F1StatsApp.controllers', []).controller('driversController', fun
 	ergastAPIservice.getDriverRaces($scope.id).success(function(response) {
 		$scope.races = response.MRData.RaceTable.Races;
 	});
+}).controller('teamController', function($scope, $routeParams, ergastAPIservice) {
+	$scope.id = $routeParams.id;
+	$scope.team = null;
+	ergastAPIservice.getTeamDetails($scope.id).success(function(response) {
+		$scope.team = response.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0];
+	});
 });

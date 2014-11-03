@@ -9,6 +9,9 @@ angular.module('F1StatsApp', [
 	}).when('/drivers/:id', {
 		templateUrl: 'partials/driver.html',
 		controller: 'driverController'
+	}).when('/teams/:id', {
+		templateUrl: 'partials/team.html',
+		controller: 'teamController'
 	}).otherwise({
 		redirectTo: '/drivers'
 	});
