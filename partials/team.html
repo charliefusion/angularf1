@@ -9,6 +9,12 @@
 			Country: {{team.Constructor.nationality}} <br>
 			<a href="{{team.Constructor.url}}" target="_blank">Biography</a>
 		</div>
+		<div>
+			<h3>Drivers</h3>
+			<ul ng-repeat="driver in driversList">
+				<li><a href="./#/drivers/{{driver.driverId}}">{{driver.givenName}}&nbsp;{{driver.familyName}}</a></li>
+			</ul>
+		</div>
 	</div>
 
 	<div>
@@ -35,3 +41,4 @@
 		</table>
 	</div>
 </section>
+<img src="img/loading.gif" id="loading-gif" alt="loading, please wait">
