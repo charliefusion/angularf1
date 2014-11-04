@@ -1,0 +1,20 @@
+<a href="#/drivers">Drivers list</a>
+<table>
+	<thead>
+		<tr>
+			<th colspan="4">Constructor Championship Standings</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="team in teamsList">
+			<td>{{team.position}}</td>
+			<td>
+				<img src="img/flags/{{team.Constructor.nationality}}.png" alt="{{team.Constructor.nationality}} flag">
+				<a href="#/teams/{{team.Constructor.constructorId}}">{{team.Constructor.name}}</a>
+			</td>
+			<td>drivers</td>
+			<td>{{team.points}}</td>
+		</tr>
+	</tbody>
+</table>
+<img src="img/loading.gif" id="loading-gif" alt="loading, please wait">
