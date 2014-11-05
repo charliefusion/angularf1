@@ -1,4 +1,4 @@
-angular.module('F1StatsApp.services', []).factory('ergastAPIservice', function($http) {
+app.factory('ergastAPIservice', function($http) {
 	var ergastAPI = {};
 	ergastAPI.getDrivers = function(year) {
 		return $http({
