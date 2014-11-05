@@ -1,22 +1,29 @@
-angular.module('F1StatsApp.controllers', []).controller('driversController', function($scope, ergastAPIservice) {
+angular.module('F1StatsApp.controllers', []).controller('driversController', function($scope, $rootScope, ergastAPIservice) {
 	$scope.nameFilter = null;
 	$scope.driversList = [];
+	$rootScope.year = '2014';
 	$scope.searchFilter = function(driver) {
 		var keyword = new RegExp($scope.nameFilter, 'i');
 		return !$scope.nameFilter || keyword.test(driver.Driver.givenName) || keyword.test(driver.Driver.familyName);
 	};
-	ergastAPIservice.getDrivers('2014').success(function(response) {
+	$scope.change = function() {
+		$rootScope.year = this.year;
+		ergastAPIservice.getDrivers($rootScope.year).success(function(response) {
+			$scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+		});
+	}
+	ergastAPIservice.getDrivers($rootScope.year).success(function(response) {
 		document.getElementById('loading-gif').style.display = 'none';
 		$scope.driversList = response.MRData.StandingsTable.StandingsLists[0].DriverStandings;
 	});
-}).controller('driverController', function($scope, $routeParams, ergastAPIservice) {
+}).controller('driverController', function($scope, $routeParams, $rootScope, ergastAPIservice) {
 	$scope.id = $routeParams.id;
 	$scope.races = [];
 	$scope.driver = null;
-	ergastAPIservice.getDriverDetails($scope.id).success(function(response) {
+	ergastAPIservice.getDriverDetails($scope.id, $rootScope.year).success(function(response) {
 		$scope.driver = response.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
 	});
-	ergastAPIservice.getDriverRaces($scope.id).success(function(response) {
+	ergastAPIservice.getDriverRaces($scope.id, $rootScope.year).success(function(response) {
 		$scope.races = response.MRData.RaceTable.Races;
 	});
 }).controller('teamsController', function($scope, ergastAPIservice) {
