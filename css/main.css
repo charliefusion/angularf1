@@ -51,3 +51,47 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+a {
+  color:#222;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color:#f00;
+  cursor:pointer;
+  text-decoration: underline;
+}
+strong {
+  font-weight:bold;
+}
+.app-wrap {
+  font-family:Helvetica,Arial,sans-serif;
+  margin:0 auto;
+  max-width:800px;
+}
+.app-wrap table {
+  margin:20px 0;
+  width:100%;
+}
+.app-wrap table td {
+  background:#f1f1f1;
+  border:1px solid #fff;
+  padding:5px;
+  vertical-align: middle;
+}
+.app-wrap table td img {
+  vertical-align: middle;
+}
+.app-wrap select {
+
+}
+.app-wrap ul a,
+.app-wrap .view-switch {
+  color:#f00;
+}
+.app-wrap ul a:hover,
+.app-wrap ul a:focus,
+.app-wrap .view-switch:hover,
+.app-wrap .view-switch:focus {
+  color:#666;
+}
