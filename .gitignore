@@ -5,3 +5,4 @@ node_modules/*
 .sass-cache/*
 gruntfile.js
 package.json
+npm-debug.log
